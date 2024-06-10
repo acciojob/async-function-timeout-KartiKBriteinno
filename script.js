@@ -1,4 +1,3 @@
-//your JS code here. If required.
 document.addEventListener('DOMContentLoaded', () => {
     const textInput = document.getElementById('text');
     const delayInput = document.getElementById('delay');
@@ -8,6 +7,11 @@ document.addEventListener('DOMContentLoaded', () => {
     submitButton.addEventListener('click', async () => {
         const text = textInput.value;
         const delay = parseInt(delayInput.value);
+
+        if (!text || isNaN(delay)) {
+            alert("Please enter valid text and delay");
+            return;
+        }
 
         await displayMessageAfterDelay(text, delay);
     });
